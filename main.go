@@ -94,6 +94,11 @@ func main() {
 		pubkeyBytesToUse = [4]byte{0x02, 0xaa, 0x7e, 0xd3}  // Zpub
 	}
 
+	derivationPathSpecter := strings.Replace(
+		strings.ReplaceAll(derivationPath, "'", "h"),
+		"m/", "", 1,
+	)
+
 	masterXpriv, err := hdkeychain.NewMaster(seed, &network)
 	if err != nil {
 		fmt.Println("Couldn't create seed", err)
@@ -141,6 +146,8 @@ func main() {
 	fmt.Println("Root Fingerprint:", xfp)
 	fmt.Println("Network:", networkName)
 	fmt.Println("Derivation Path:", derivationPath)
+	fmt.Println("Specter-Desktop Input Format:")
+	fmt.Printf("  [%s/%s]%s\n", xfp, derivationPathSpecter, childZpub)
 	fmt.Println(strings.Repeat("-", 80))
 
 	if *verbosityBoolPtr == true {
