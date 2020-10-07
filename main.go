@@ -151,11 +151,11 @@ func main() {
 	fmt.Println(strings.Repeat("-", 80))
 
 	if *verbosityBoolPtr == true {
-		fmt.Println("Advanced Details:")
-		fmt.Println("childXpub:", childXpub)
-		fmt.Println("childXpriv:", childXpriv)
-		fmt.Println("childZpriv:", childZpriv)
-		fmt.Println("# of valid checksums:", len(validChecksums))
+		fmt.Println("  Advanced Details:")
+		fmt.Println("  childXpub:", childXpub)
+		fmt.Println("  childXpriv:", childXpriv)
+		fmt.Println("  childZpriv:", childZpriv)
+		fmt.Println(" ", len(validChecksums), "valid checksums:", validChecksums)
 	}
 
 }
