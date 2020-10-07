@@ -7,7 +7,7 @@
 
 Basic:
 ```bash
-g$ go run *.go -firstWords="zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo"
+$ go run *.go -firstWords="zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo"
 SECRET INFO:
 Full mnemonic (with checksum word):  zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo abstract
 Full mnemonic length (# words):  12
@@ -17,12 +17,15 @@ SLIP132 Extended Pubkey: Zpub74h4HCSddD3n8wX1JMQjfb12fQeLAeFAbtN3zVqyTSj387zTdnY
 Root Fingerprint: f7d04090
 Network: mainnet
 Derivation Path: m/48'/0'/0'/2'
+Specter-Desktop Input Format:
+  [f7d04090/48h/0h/0h/2h]Zpub74h4HCSddD3n8wX1JMQjfb12fQeLAeFAbtN3zVqyTSj387zTdnYR4GpuA2giJMEvp5nJ7L48uGmVawyfV3pkHY5d6rMVtXFCk6J3Aw81r5c
 --------------------------------------------------------------------------------
 ```
 
 Pass `-testnet` flag to run on testnet
 ```bash
 $ go run *.go -firstWords="zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo" -testnet
+
 SECRET INFO:
 Full mnemonic (with checksum word):  zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo abstract
 Full mnemonic length (# words):  12
@@ -32,6 +35,8 @@ SLIP132 Extended Pubkey: Vpub5myBTZx9knAMMmypC51gfX2RXnS8rJWKNMUTCwZNxwajq2tKcrj
 Root Fingerprint: f7d04090
 Network: testnet3
 Derivation Path: m/48'/1'/0'/2'
+Specter-Desktop Input Format:
+  [f7d04090/48h/1h/0h/2h]Vpub5myBTZx9knAMMmypC51gfX2RXnS8rJWKNMUTCwZNxwajq2tKcrj15SPpbJFdYmG5EgUVDA3Gt5UQgUDoCqc5XaYN3iZNZWhFjH9ScbVPnHh
 --------------------------------------------------------------------------------
 ```
 
@@ -55,6 +60,7 @@ SLIP132 Extended Pubkey: Zpub74sb5KB3Ak1RwabGr8SHQnMTkd2mC3boVDgPf1jBFNxcXh7Nx4K
 Root Fingerprint: 669dce62
 Network: mainnet
 Derivation Path: m/48'/0'/0'/2'
+Specter-Desktop Input Format:
+  [669dce62/48h/0h/0h/2h]Zpub74sb5KB3Ak1RwabGr8SHQnMTkd2mC3boVDgPf1jBFNxcXh7Nx4KV3XakPDtWLN5RpszdM7qcBN4wm7xreh8Ys2xYUBqQ9GtkTN8h5kRVecc
 --------------------------------------------------------------------------------
-
 ```
