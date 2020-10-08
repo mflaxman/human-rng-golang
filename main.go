@@ -163,9 +163,9 @@ func main() {
 
 	if *verbosityBoolPtr == true {
 		fmt.Println("  Advanced Details:")
-		fmt.Println("  childXpub:", childXpub)
-		fmt.Println("  childXpriv:", childXpriv)
-		fmt.Println("  childZpriv:", childZpriv)
+		fmt.Println("  child xpub:", childXpub)
+		fmt.Println("  child xpriv:", childXpriv)
+		fmt.Println("  child xpriv (SLIP132 encoded):", childZpriv)
 		fmt.Println(" ", len(validChecksums), "valid checksums:", validChecksums)
 	}
 
