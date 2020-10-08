@@ -13,10 +13,24 @@ import (
 
 func main() {
 
-	firstWordsPtr := flag.String("firstWords", "", "First words of mnemonic (23 words by default)")
+	firstWordsPtr := flag.String("firstWords", "", "REQUIRED: First words of mnemonic (23 words by default)")
 	testnetBoolPtr := flag.Bool("testnet", false, "Use testnet (default is mainnet)")
 	verbosityBoolPtr := flag.Bool("verbose", false, "Verbose printout (default is quiet)")
-	checksumIntPtr := flag.Int("checksum", 0, "Which checksum word to append, using a 0-index. EXPERTS ONLY.")
+	checksumIntPtr := flag.Int("checksum", 0, "EXPERTS ONLY: Which checksum word to append, using a 0-index.")
+
+	// https://stackoverflow.com/questions/53082613/set-the-order-for-output-by-flag-printdefaults
+	flag.Usage = func() {
+		flagSet := flag.CommandLine
+		fmt.Println("HumanRNG - Don't Trust Your Random Number Generator\n")
+		fmt.Println("Usage:")
+		fmt.Println("  go run *.go -firstWords=\"add bag cat ...\"\n")
+		order := []string{"firstWords", "testnet", "verbose", "checksum"}
+		for _, name := range order {
+			flag := flagSet.Lookup(name)
+			fmt.Printf("-%s\n", flag.Name)
+			fmt.Printf("  %s\n", flag.Usage)
+		}
+	}
 
 	flag.Parse()
 
@@ -36,14 +50,11 @@ func main() {
 		fmt.Println(strings.Repeat("-", 80))
 	}
 
-	// firstWords := "zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo"
-	// mnemonic := "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon"
-
 	firstWords := strings.TrimSpace(*firstWordsPtr)
 
 	if len(firstWords) == 0 {
-		flag.PrintDefaults()
-		fmt.Println("\n(You didn't supply supply firstWords of your mnemonic)\n")
+		fmt.Println("ERROR: You didn't supply supply firstWords of your mnemonic\n")
+		flag.Usage()
 		os.Exit(1)
 	}
 
